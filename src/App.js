@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { Grommet } from "grommet";
+import { Route, Router } from "react-router";
+import MainGame from "./pages/MainGame";
+import PreGame from "./pages/PreGame";
+
+const theme = {
+  global: {},
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Grommet theme={theme}>
+      <Router>
+        <Route to="/start" element={<PreGame />} />
+        <Route to="/play" element={<MainGame />} />
+      </Router>
+    </Grommet>
   );
 }
 
